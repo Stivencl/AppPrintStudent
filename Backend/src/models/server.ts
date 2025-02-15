@@ -1,7 +1,10 @@
 import express, { Application } from 'express'
-import sequelize from '../db/conexion';
 import RouterUser from '../routes/user';
+import RouterStudent from '../routes/student';
 import { User } from './user';
+import { Student } from './student';
+
+
 class Server {
     private app: Application;
     private port: string;
@@ -27,6 +30,7 @@ class Server {
 
     router(){
         this.app.use(RouterUser)
+        this.app.use(RouterStudent)
 
     }
 
@@ -37,8 +41,9 @@ class Server {
     async DBconnet() {
         try {
            // await sequelize.authenticate();
-           await User.sync({force: true})
-           console.log('The table for th euser model was just (re)create!')
+           await User.sync();
+           await Student.sync();
+           console.log('The table for the user model was just (re)create!')
             console.log('Connection has been established successfully.');
 
         } catch (error) {

@@ -1,4 +1,4 @@
-//import { DataTypes } from "sequelize";
+
 import { DataTypes } from '@sequelize/core';
 import sequelize from "../db/conexion";
 
@@ -9,6 +9,11 @@ export const User = sequelize.define('user',
         primaryKey: true,
         autoIncrement: true
        }, 
+       id_teacher: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        unique: true
+      },
        name: {
         type: DataTypes.STRING,
         allowNull: false
