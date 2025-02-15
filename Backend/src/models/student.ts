@@ -40,11 +40,11 @@ export const Student = sequelize.define('student',
         allowNull: false
        },
        inf_medical: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
        },
        inf_vuln: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
        },
        code_dane: {

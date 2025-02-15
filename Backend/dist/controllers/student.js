@@ -9,9 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.registrerStudent = void 0;
+exports.getStudents = exports.registerStudent = void 0;
 const student_1 = require("../models/student");
-const registrerStudent = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const registerStudent = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id, name, last_name, id_guardian, eps, rh, birthdate, inf_acad, inf_medical, inf_vuln, code_dane, piar } = req.body;
     student_1.Student.create({
         id: id,
@@ -25,7 +25,7 @@ const registrerStudent = (req, res) => __awaiter(void 0, void 0, void 0, functio
         inf_medical: inf_medical,
         inf_vuln: inf_vuln,
         code_dane: code_dane,
-        piar: piar,
+        piar: false,
     }).then((student) => {
         res.status(200).json({
             msg: "Estudiante creado correctamente",
@@ -38,4 +38,9 @@ const registrerStudent = (req, res) => __awaiter(void 0, void 0, void 0, functio
         });
     });
 });
-exports.registrerStudent = registrerStudent;
+exports.registerStudent = registerStudent;
+const getStudents = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const listaStudents = yield student_1.Student.findAll();
+    res.json({ listaStudents });
+});
+exports.getStudents = getStudents;

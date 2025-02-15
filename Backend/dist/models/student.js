@@ -42,11 +42,11 @@ exports.Student = conexion_1.default.define('student', {
         allowNull: false
     },
     inf_medical: {
-        type: core_1.DataTypes.INTEGER,
+        type: core_1.DataTypes.STRING,
         allowNull: false
     },
     inf_vuln: {
-        type: core_1.DataTypes.INTEGER,
+        type: core_1.DataTypes.STRING,
         allowNull: false
     },
     code_dane: {

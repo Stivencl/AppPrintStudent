@@ -1,7 +1,7 @@
 import { Request, Response  } from "express"
 import { Student } from "../models/student"
 
-export const registrerStudent = async (req: Request, res: Response) =>{
+export const registerStudent = async (req: Request, res: Response) =>{
     const { id, name, last_name, id_guardian, eps, rh, 
         birthdate, inf_acad, inf_medical, inf_vuln,
          code_dane, piar} = req.body
@@ -19,7 +19,7 @@ export const registrerStudent = async (req: Request, res: Response) =>{
         inf_medical: inf_medical,
         inf_vuln: inf_vuln,
         code_dane: code_dane,
-        piar: piar,
+        piar: false,
        
         
     }).then((student) => {
@@ -33,7 +33,11 @@ export const registrerStudent = async (req: Request, res: Response) =>{
             err
         })
     })
+}
 
+export const getStudents = async (req : Request, res: Response)=>{
+    const listaStudents = await Student.findAll();
+    res.json({listaStudents});
 
 
 }

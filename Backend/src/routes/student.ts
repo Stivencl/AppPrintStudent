@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { registrerStudent } from "../controllers/student";
+import { getStudents, registerStudent } from "../controllers/student";
 
 
 
 const router = Router();
 
-router.post("/api/student/registrer", registrerStudent)
+router.post("/api/student/register", registerStudent)
+router.get("/api/student/getStudents", getStudents)
+
 
 export default router;

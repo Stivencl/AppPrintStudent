@@ -31,11 +31,12 @@ class Server {
     router(){
         this.app.use(RouterUser)
         this.app.use(RouterStudent)
-
+       
     }
 
     midleware(){
        this.app.use(express.json())
+       
     }
 
     async DBconnet() {
