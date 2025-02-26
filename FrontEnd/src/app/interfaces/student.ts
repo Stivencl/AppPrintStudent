@@ -1,4 +1,4 @@
-export interface User{
+export interface Student{
   id: number,
   name: string,
   lastname: string,
@@ -12,7 +12,4 @@ export interface User{
   code_dane: number,
   piar: boolean
 
-
- 
- 
 }
