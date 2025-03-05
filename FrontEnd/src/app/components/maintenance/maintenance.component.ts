@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-maintenance',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './maintenance.component.html',
   styleUrl: './maintenance.component.scss'
 })
