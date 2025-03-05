@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-errorpage',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './errorpage.component.html',
   styleUrl: './errorpage.component.scss'
 })

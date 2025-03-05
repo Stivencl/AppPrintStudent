@@ -1,25 +1,28 @@
-import { Routes, RouterModule} from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { SingInComponent } from './components/singin/sing-in.component';
-import { DashBoardComponent } from './components/dashboard/dash-board.component';
-import { MaintenanceComponent } from './components/maintenance/maintenance.component';
-import { ErrorpageComponent } from './components/errorpage/errorpage.component';
-import { NgModule } from '@angular/core';
+import { Routes} from '@angular/router';
+
 
 export const routes: Routes = [
-    {path: 'login', component: LoginComponent},
-    {path: 'singin', component: SingInComponent},
-    {path: 'dashboard', component: DashBoardComponent },
-    {path: 'maintenance', component: MaintenanceComponent},
-    {path: 'errorpage', component: ErrorpageComponent},
-    {path: '**', redirectTo: '/errorpage', pathMatch:'full'},
-
-    
+    {
+        path: 'login',
+        loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent)
+    },
+    {path: 'singin', 
+       loadComponent: () => import('./components/singin/sing-in.component').then(m => m.SingInComponent)
+    },
+    {path: 'dashboard', 
+        loadComponent: () => import('./components/dashboard/dash-board.component').then(m => m.DashBoardComponent)
+    },
+    {path: 'maintenance', 
+        loadComponent: () => import('./components/maintenance/maintenance.component').then(m => m.MaintenanceComponent)
+    },
+    {path: 'errorpage',
+        loadComponent: () => import('./components/errorpage/errorpage.component').then(m => m.ErrorpageComponent)
+    },
+    {path: '**', 
+        redirectTo: '/errorpage', 
+        pathMatch:'full'},
+  
 ];
 
-@NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
-  
-})
+
 export class AppRoutingModule{}
