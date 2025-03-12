@@ -1,49 +1,61 @@
 <div class="wrapper">
-    <div class="body">
-        <form action="">
-            <img src="assets/PrintStudent.png" class="logo" alt="">
+    <div class="bodysingin">
+        <div >
+            <img src="../../../assets/PrintStudent.jpg" class="logo" alt="">
             <h1>Resgistrar Usuario</h1>
+            <div class="row g-1">
 
-            <div class="form-floating mb-4">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Identificación</label>
+              <div class="form-floating mb-2 ">
+                <input type="number" value="0" class="form-control" [(ngModel)]="id" id="floatingId" placeholder="Identificación">
+                <label for="floatingId">Identificación</label>
               </div>
 
-              <div class="form-floating mb-4">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Nombre</label>
+              <div class="form-floating mb-2 col">
+                <input type="text" class="form-control" [(ngModel)]="name" id="floatingName" placeholder="Nombre">
+                <label for="floatingName">Nombre</label>
               </div>
 
-              <div class="form-floating mb-4">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Apellido</label>
+              <div class="form-floating mb-2 col">
+                <input type="text" class="form-control" [(ngModel)]="last_name" id="floatingLastName" placeholder="Apelido">
+                <label for="floatingLastName">Apellido</label>
               </div>    
 
-            <div class="form-floating mb-4">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+            <div class="form-floating mb-2">
+                <input type="email" class="form-control" [(ngModel)]="email" id="floatingEmail" placeholder="name@example.com">
+                <label for="floatingEmail">Correo</label>
               </div>
             
-              <div class="form-floating mb-4">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Contraseña</label>
+              <div class="form-floating mb-2 col">
+                <input type="password" class="form-control" [(ngModel)]="password" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Contraseña</label>
               </div>  
 
-              <div class="form-floating mb-4">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Repetir contraseña</label>
+              <div class="form-floating mb-2 col">
+                <input type="password" class="form-control" [(ngModel)]="Rpassword" id="floatingRepetPassword" placeholder="Password">
+                <label for="floatingRepetPassword">Repetir contraseña</label>
               </div>
 
-              <div class="form-floating mb-4">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Rol</label>
+              <div class="form-floating mb-2">
+                <select class="form-select" [(ngModel)]="role" aria-label="Seleccione un rol">
+                  <option selected>Seleccione un rol</option>
+                  <option value="doc">Docente</option>
+                  <option value="coo">Coordinador</option>
+                  <option value="sec">Secretario</option>
+                </select>
               </div>  
 
               <div class="d-grid gap-2">
-                <a class="btn btn-primary" routerLink="/login" type="button">Registrar</a>
+                <a class="btn btn-primary" (click)="addUser()" type="button">Registrar</a>
               </div>
+              <div>
+                <p class="mt-3">¿Ya tengo cuenta? <a routerLink="/login">Iniciar Sesión</a></p>
+              </div>
+
+            </div>
+
+            
               
-        </form>
+        </div>
 
     </div>
 
