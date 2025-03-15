@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { User } from '../../interfaces/user';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
+
 
 
 
@@ -15,11 +19,9 @@ import { ToastrService } from 'ngx-toastr';
 
 export class SingInComponent implements OnInit {
    
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
-  id: number = 0;
+  id_teacher: number = 0;
   name: string = '';
   last_name: string = '';
   email: string = '';
@@ -27,21 +29,41 @@ export class SingInComponent implements OnInit {
   Rpassword: string = '';
   role: string = '';
   
-  constructor(private toastr: ToastrService) { 
-      
-  }
+  constructor(private toastr: ToastrService,
+    private userService: UserService,
+    private router: Router
+              
+  ) { }
 
   addUser(){
-    if (this.id == 0 || this.name == '' || this.last_name == '' || this.email == '' || this.password == '' || this.Rpassword == '' || this.role == '' ){
+    if (this.id_teacher == 0 || this.name == '' || this.last_name == '' || this.email == '' || this.password == '' || this.Rpassword == '' || this.role == '' ){
        this.toastr.warning("Todos los campos son obligatorios", "warning");
        return
     }
 
     if (this.password != this.Rpassword){
-      this.toastr.error("Las contraseñas no coinsiden", "Error");
+      this.toastr.error("Las contraseñas no coinciden", "Error");
       return
 
     }
+
+    //Create the object
+    const user: User = {
+      
+      id_teacher: this.id_teacher,
+      name: this.name,
+      last_name: this.last_name,
+      email: this.email,
+      password: this.password,
+      role: this.role,
+      
+     
+    }
+    console.log(user);
+    this.userService.signIn(user).subscribe(data =>{
+      this.toastr.success("Usuario creado con exito", "Exito");
+
+    })
   }
 
 
