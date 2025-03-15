@@ -17,6 +17,7 @@ const user_1 = __importDefault(require("../routes/user"));
 const student_1 = __importDefault(require("../routes/student"));
 const user_2 = require("./user");
 const student_2 = require("./student");
+const cors_1 = __importDefault(require("cors"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -37,6 +38,7 @@ class Server {
     }
     midleware() {
         this.app.use(express_1.default.json());
+        this.app.use((0, cors_1.default)());
     }
     DBconnet() {
         return __awaiter(this, void 0, void 0, function* () {

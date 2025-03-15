@@ -3,7 +3,7 @@ import RouterUser from '../routes/user';
 import RouterStudent from '../routes/student';
 import { User } from './user';
 import { Student } from './student';
-
+import cors from 'cors';
 
 class Server {
     private app: Application;
@@ -36,7 +36,7 @@ class Server {
 
     midleware(){
        this.app.use(express.json())
-       
+       this.app.use(cors())
     }
 
     async DBconnet() {
@@ -54,3 +54,5 @@ class Server {
     }
 }
 export default Server;
+
+
