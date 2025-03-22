@@ -20,9 +20,15 @@ export const routes: Routes = [
     {path: 'maintenance', 
         loadComponent: () => import('./components/maintenance/maintenance.component').then(m => m.MaintenanceComponent)
     },
+
     {path: 'errorpage',
         loadComponent: () => import('./components/errorpage/errorpage.component').then(m => m.ErrorpageComponent)
     },
+
+    {path: 'requestudiante',
+        loadComponent: () => import('./components/requestudiante/requestudiante.component').then(m => m.RequestudianteComponent)
+    },
+    
     {path: '**', 
         redirectTo: '/errorpage', 
         pathMatch:'full'},
