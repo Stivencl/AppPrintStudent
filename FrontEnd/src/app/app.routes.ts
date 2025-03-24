@@ -1,4 +1,5 @@
 import { Routes} from '@angular/router';
+import path from 'path';
 
 
 export const routes: Routes = [
@@ -14,8 +15,15 @@ export const routes: Routes = [
     {path: 'singin', 
        loadComponent: () => import('./components/singin/sing-in.component').then(m => m.SingInComponent)
     },
+
     {path: 'dashboard', 
-        loadComponent: () => import('./components/dashboard/dash-board.component').then(m => m.DashBoardComponent)
+        loadComponent: () => import('./components/dashboard/dash-board.component').then(m => m.DashBoardComponent),
+        children:[{ path: 'requestudiante',
+            loadComponent: () => import('./components/requestudiante/requestudiante.component').then(m => m.RequestudianteComponent)},
+            {path: 'singin', 
+                loadComponent: () => import('./components/singin/sing-in.component').then(m => m.SingInComponent)
+             },
+        ]
     },
     {path: 'maintenance', 
         loadComponent: () => import('./components/maintenance/maintenance.component').then(m => m.MaintenanceComponent)

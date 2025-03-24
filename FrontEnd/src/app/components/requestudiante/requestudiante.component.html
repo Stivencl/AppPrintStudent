@@ -17,3 +17,75 @@
       </div>
     </div>
   </div>
+  <p></p>
+ <!-- tabla estudiantes -->
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let docente of docentes">
+        <td>{{ docente.nombre }}</td>
+        <td>
+          <!-- Botón Anotación -->
+          <button class="btn btn-primary btn-sm" (click)="abrirModal('anotacion', docente)">Anotación</button>
+  
+          <!-- Botón Ver -->
+          <button class="btn btn-success btn-sm" (click)="abrirModal('ver', docente)">Ver</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalDocente" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ tituloModal }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>{{ contenidoModal }}</p>
+
+          <div class="row g-1">
+
+            <div class="form-floating mb-2 ">
+              <input type="number" value="0" class="form-control"  id="floatingId" placeholder="Identificación">
+              <label for="floatingId">Identificación docente</label>
+            </div>
+
+            <div class="form-floating mb-2 col">
+              <input type="date" class="form-control"  id="floatinfecha" placeholder="fecha">
+              <label for="floatingfecha">Fecha</label>
+            </div>
+
+            <div class="form-floating mb-2 col">
+              <input type="text" class="form-control"  id="floatingTipo" placeholder="Tipo de falta">
+              <label for="floatingTipo">Tipo de falta</label>
+            </div>    
+
+            <div class="form-floating mb-2 col">
+              <textarea class="form-control" id="floatingTipo" placeholder="Detalles" style="height: 100px"></textarea>
+              <label for="floatingDetalles">Detalles</label>
+            </div>
+          
+            <div class="d-grid gap-2">
+              <a class="btn btn-primary" type="button">Guardar</a>
+            </div>
+            
+
+          </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

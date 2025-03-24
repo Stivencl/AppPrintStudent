@@ -13,13 +13,19 @@
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 
           <li class="nav-item">
-            <a class="nav-link"  href="#" routerLink="/requestudiante">Requerimiento</a>
+            <a class="nav-link"  href="#" routerLink="/dashboard/requestudiante">Requerimiento</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Historial</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Docente</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="docenteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Docente
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="docenteDropdown">
+              <li><a class="dropdown-item" routerLink="/dashboard/singin">Nuevo Docente</a></li>
+              <li><a class="dropdown-item" routerLink="/dashboard/consultar-docente">Consultar Docente</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Alumno</a>
